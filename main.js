@@ -8,7 +8,7 @@ const hidden = document.querySelector('.hidden');
 const scrambleText = input => {
   let words = input.value;
   if(words.length < 4) {
-    return 'Enter a message with 4 or more characters to scramble!';
+    return 'Enter a message with 4 or more characters to encrypt!';
   }
   return words.split(' ').map(word => {
     return word.split('').map(w => {
