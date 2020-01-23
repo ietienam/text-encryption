@@ -4,66 +4,67 @@ const unscramble = document.querySelector('.unscramble');
 const decrypt = document.querySelector('.decrypt');
 const textResult = document.querySelector('.alert');
 const hidden = document.querySelector('.hidden');
+const scram = document.querySelector('.scram');
 
 const scrambleText = input => {
   let words = input.value.toLowerCase();
-  if(words.length < 4) {
+  if (words.length < 4) {
     return 'Enter a message with 4 or more characters to encrypt!';
   }
   return words.split('').reverse().map(w => {
-    if(w === 'a') {
+    if (w === 'a') {
       return '^';
-    } else if(w === 'e') {
+    } else if (w === 'e') {
       return '@';
-    } else if(w === ' ') {
+    } else if (w === ' ') {
       return ':';
-    } else if(w === 'i') {
+    } else if (w === 'i') {
       return '$';
-    } else if(w === 'o') {
+    } else if (w === 'o') {
       return '~';
-    } else if(w === 'u') {
+    } else if (w === 'u') {
       return '%';
-    } else if(w === 't') {
+    } else if (w === 't') {
       return '|';
-    } else if(w === 'r') {
+    } else if (w === 'r') {
       return '`';
-    } else if(w === 's') {
+    } else if (w === 's') {
       return '}';
-    } else if(w === 'n') {
+    } else if (w === 'n') {
       return '_';
-    } else if(w === 'l') {
+    } else if (w === 'l') {
       return '[';
-    } else if(w === 'h') {
+    } else if (w === 'h') {
       return ']';
-    } else if(w === 'd') {
+    } else if (w === 'd') {
       return '{';
-    } else if(w === 'y') {
+    } else if (w === 'y') {
       return '*';
-    } else if(w ==='b') {
+    } else if (w === 'b') {
       return '/';
-    } else if(w === 'f') {
+    } else if (w === 'f') {
       return 'a';
-    } else if(w === 'c') {
+    } else if (w === 'c') {
       return 'e';
-    } else if(w === 'g') {
+    } else if (w === 'g') {
       return 'i';
-    } else if(w === 'j') {
+    } else if (w === 'j') {
       return 'o';
-    } else if(w === 'k') {
+    } else if (w === 'k') {
       return 'u';
-    } else if(w === 'm') {
+    } else if (w === 'm') {
       return '#';
-    } else if(w === 'p') {
+    } else if (w === 'p') {
       return '&';
-    } else if(w === 'q') {
+    } else if (w === 'q') {
       return '+';
-    } else if(w === 'v') {
+    } else if (w === 'v') {
       return '<';
-    } else if(w === 'w') {
+    } else if (w === 'w') {
       return '>';
-    } else if(w === 'x') {
+    } else if (w === 'x') {
       return '"';
-    } else if(w === 'z') {
+    } else if (w === 'z') {
       return '=';
     } else {
       return w;
@@ -84,20 +85,220 @@ scramble.addEventListener('click', (e) => {
   textResult.textContent = scrambleText(text);
 });
 
-const unscrambleText = input => {
+/*const unscrambleText = input => {
   let wordsArr = input.textContent.split(' ');
   return wordsArr.map(word => {
     return word.split('').reverse().join('')
   }).join(' ')
+};*/
+const showDecrypted = input => {
+  let words = input.textContent;
+  if (words.length < 4) {
+    return 'Enter a message with 4 or more characters to encrypt!';
+  }
+  return words.split('').reverse().map(w => {
+    if (w === 'a') {
+      return '^';
+    } else if (w === 'e') {
+      return '@';
+    } else if (w === ' ') {
+      return ':';
+    } else if (w === 'i') {
+      return '$';
+    } else if (w === 'o') {
+      return '~';
+    } else if (w === 'u') {
+      return '%';
+    } else if (w === 't') {
+      return '|';
+    } else if (w === 'r') {
+      return '`';
+    } else if (w === 's') {
+      return '}';
+    } else if (w === 'n') {
+      return '_';
+    } else if (w === 'l') {
+      return '[';
+    } else if (w === 'h') {
+      return ']';
+    } else if (w === 'd') {
+      return '{';
+    } else if (w === 'y') {
+      return '*';
+    } else if (w === 'b') {
+      return '/';
+    } else if (w === 'f') {
+      return 'a';
+    } else if (w === 'c') {
+      return 'e';
+    } else if (w === 'g') {
+      return 'i';
+    } else if (w === 'j') {
+      return 'o';
+    } else if (w === 'k') {
+      return 'u';
+    } else if (w === 'm') {
+      return '#';
+    } else if (w === 'p') {
+      return '&';
+    } else if (w === 'q') {
+      return '+';
+    } else if (w === 'v') {
+      return '<';
+    } else if (w === 'w') {
+      return '>';
+    } else if (w === 'x') {
+      return '"';
+    } else if (w === 'z') {
+      return '=';
+    } else {
+      return w;
+    }
+  }).join('')
+};
+
+const showOriginal = input => {
+  let words = input.textContent.toLowerCase();
+  if (words.length < 4) {
+    return 'Enter a message with 4 or more characters to decrypt!';
+  }
+  return words.split('').reverse().map(w => {
+    if (w === '^') {
+      return 'a';
+    } else if (w === '@') {
+      return 'e';
+    } else if (w === ':') {
+      return ' ';
+    } else if (w === '$') {
+      return 'i';
+    } else if (w === '~') {
+      return 'o';
+    } else if (w === '%') {
+      return 'u';
+    } else if (w === '|') {
+      return 't';
+    } else if (w === '`') {
+      return 'r';
+    } else if (w === '}') {
+      return 's';
+    } else if (w === '_') {
+      return 'n';
+    } else if (w === '[') {
+      return 'l';
+    } else if (w === ']') {
+      return 'h';
+    } else if (w === '{') {
+      return 'd';
+    } else if (w === '*') {
+      return 'y';
+    } else if (w === '/') {
+      return 'b';
+    } else if (w === 'a') {
+      return 'f';
+    } else if (w === 'e') {
+      return 'c';
+    } else if (w === 'i') {
+      return 'g';
+    } else if (w === 'o') {
+      return 'j';
+    } else if (w === 'u') {
+      return 'k';
+    } else if (w === '#') {
+      return 'm';
+    } else if (w === '&') {
+      return 'p';
+    } else if (w === '+') {
+      return 'q';
+    } else if (w === '<') {
+      return 'v';
+    } else if (w === '>') {
+      return 'w';
+    } else if (w === '"') {
+      return 'x';
+    } else if (w === '=') {
+      return 'z';
+    } else {
+      return w;
+    }
+  }).join('')
 };
 
 unscramble.addEventListener('click', (e) => {
   e.preventDefault();
-  textResult.textContent = unscrambleText(textResult).toLowerCase();
+  showOriginal(textResult);
+  textResult.textContent = showOriginal(textResult);
+});
+
+scram.addEventListener('click', (e) => {
+  e.preventDefault();
+  showDecrypted(textResult);
+  textResult.textContent = showDecrypted(textResult);
 });
 
 const decryptText = input => {
-  let words = input.value;
+  let words = input.value.toLowerCase();
+  if (words.length < 4) {
+    return 'Enter a message with 4 or more characters to decrypt!';
+  }
+  return words.split('').reverse().map(w => {
+    if (w === '^') {
+      return 'a';
+    } else if (w === '@') {
+      return 'e';
+    } else if (w === ':') {
+      return ' ';
+    } else if (w === '$') {
+      return 'i';
+    } else if (w === '~') {
+      return 'o';
+    } else if (w === '%') {
+      return 'u';
+    } else if (w === '|') {
+      return 't';
+    } else if (w === '`') {
+      return 'r';
+    } else if (w === '}') {
+      return 's';
+    } else if (w === '_') {
+      return 'n';
+    } else if (w === '[') {
+      return 'l';
+    } else if (w === ']') {
+      return 'h';
+    } else if (w === '{') {
+      return 'd';
+    } else if (w === '*') {
+      return 'y';
+    } else if (w === '/') {
+      return 'b';
+    } else if (w === 'a') {
+      return 'f';
+    } else if (w === 'e') {
+      return 'c';
+    } else if (w === 'i') {
+      return 'g';
+    } else if (w === 'o') {
+      return 'j';
+    } else if (w === 'u') {
+      return 'k';
+    } else if (w === '#') {
+      return 'm';
+    } else if (w === '&') {
+      return 'p';
+    } else if (w === '+') {
+      return 'q';
+    } else if (w === '<') {
+      return 'v';
+    } else if (w === '>') {
+      return 'w';
+    } else if (w === '"') {
+      return 'x';
+    } else if (w === '=') {
+      return 'z';
+    } else {
+      return w;
+    }
+  }).join('')
   /*return words.split(' ').map(word => {
     return word.split('').reverse().join('')
   }).join(' ')*/
@@ -106,5 +307,7 @@ const decryptText = input => {
 decrypt.addEventListener('click', (e) => {
   e.preventDefault();
   decryptText(text);
+  hidden.classList.remove('hidden');
   textResult.textContent = decryptText(text);
+  console.log(decryptText(text));
 })
