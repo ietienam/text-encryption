@@ -37,6 +37,34 @@ const scrambleText = input => {
       return ']';
     } else if(w === 'd') {
       return '{';
+    } else if(w === 'y') {
+      return '*';
+    } else if(w ==='b') {
+      return '/';
+    } else if(w === 'f') {
+      return 'a';
+    } else if(w === 'c') {
+      return 'e';
+    } else if(w === 'g') {
+      return 'i';
+    } else if(w === 'j') {
+      return 'o';
+    } else if(w === 'k') {
+      return 'u';
+    } else if(w === 'm') {
+      return '#';
+    } else if(w === 'p') {
+      return '&';
+    } else if(w === 'q') {
+      return '+';
+    } else if(w === 'v') {
+      return '<';
+    } else if(w === 'w') {
+      return '>';
+    } else if(w === 'x') {
+      return '"';
+    } else if(w === 'z') {
+      return '=';
     } else {
       return w;
     }
