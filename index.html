@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Word Scrambler</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -9,12 +11,27 @@
     <h1 class="mx-auto text-light">Text Message Encryption Tool</h1>
     <h3 class="text-light">Be secretive the safe way :)</h3>
     <p class="text-light">Built by: <a href="https://inie.netlify.com" target="_blank">Ini Etienam</a></p>
+    <div class="text-light">
+      <h3>To encrypt a message...</h3>
+    <ol>
+      <li>Type in your message below</li>
+      <li>Click on the encrypt button</li>
+      <li>Copy the result and send to your friend</li>
+      <li>Share the link to this site with them so they can decrypt the encrypted message</li>
+    </ol>
+    <h3>To decrypt a message</h3>
+    <ol>
+      <li>Copy the encrypted message you received and paste it in the text field</li>
+      <li>Click on the decrypt button</li>
+      <li>Read the results</li>
+    </ol>
+    </div>
     <div class="container mt-5">
       <textarea class="form-control" cols="40" rows="4"></textarea>
       <button class="mt-2 scramble btn btn-success mr-2" type="submit">Encrypt Message</button>
       <button class="mt-2 decrypt btn btn-light" type="submit">Decrypt Message</button>
 
-      <div class="hidden">
+      <div class="hidden mt-5">
         <div class="alert alert-info mt-3" role="alert">
 
         </div>
