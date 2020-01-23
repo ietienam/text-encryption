@@ -10,36 +10,37 @@ const scrambleText = input => {
   if(words.length < 4) {
     return 'Enter a message with 4 or more characters to encrypt!';
   }
-  return words.split(' ').reverse().map(word => word.split('').reverse().map(w => {
-      if(w === 'a') {
-        return '^';
-      } else if(w === 'e') {
-        return '@';
-      } else if(w === 'i') {
-        return '$';
-      } else if(w === 'o') {
-        return '~';
-      } else if(w === 'u') {
-        return '%';
-      } else if(w === 't') {
-        return '|';
-      } else if(w === 'r') {
-        return '`';
-      } else if(w === 's') {
-        return '}';
-      } else if(w === 'n') {
-        return '_';
-      } else if(w === 'l') {
-        return '[';
-      } else if(w === 'h') {
-        return ']';
-      } else if(w === 'd') {
-        return '{';
-      } else {
-        return w;
-      }
-    }).join('')
-  ).join(' ')
+  return words.split('').reverse().map(w => {
+    if(w === 'a') {
+      return '^';
+    } else if(w === 'e') {
+      return '@';
+    } else if(w === ' ') {
+      return ':';
+    } else if(w === 'i') {
+      return '$';
+    } else if(w === 'o') {
+      return '~';
+    } else if(w === 'u') {
+      return '%';
+    } else if(w === 't') {
+      return '|';
+    } else if(w === 'r') {
+      return '`';
+    } else if(w === 's') {
+      return '}';
+    } else if(w === 'n') {
+      return '_';
+    } else if(w === 'l') {
+      return '[';
+    } else if(w === 'h') {
+      return ']';
+    } else if(w === 'd') {
+      return '{';
+    } else {
+      return w;
+    }
+  }).join('')
   /*return words.split(' ').map(word => {
     return word.split('').map(w => {
       return word.indexOf(w) % 2 === 0 ? w.toUpperCase() : w.toLowerCase();
