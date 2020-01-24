@@ -1,10 +1,9 @@
 const text = document.querySelector('textarea');
 const scramble = document.querySelector('.scramble');
-const unscramble = document.querySelector('.unscramble');
 const decrypt = document.querySelector('.decrypt');
 const textResult = document.querySelector('.alert');
 const hidden = document.querySelector('.hidden');
-const scram = document.querySelector('.scram');
+const copy = document.querySelector('.copy');
 
 const scrambleText = input => {
   let words = input.value.toLowerCase();
@@ -167,4 +166,18 @@ decrypt.addEventListener('click', (e) => {
   hidden.classList.remove('hidden');
   textResult.textContent = decryptText(text);
   console.log(decryptText(text));
-})
+});
+
+const copyCommand = () => {
+  const range = document.createRange();
+  range.selectNode(textResult);
+  console.log(range);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+  alert("Copied! " + textResult.textContent);
+  console.log("Copied the following text successfully : " + textResult.textContent);
+};
+
+copy.addEventListener('click', copyCommand);
